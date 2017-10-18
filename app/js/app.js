@@ -12,6 +12,23 @@ class Board extends Component {
     }
   }
 
+  generateTestData = () => {
+    this.setState({
+      board: Array(13).fill().map((_, rowIndex) => {
+        return Array(10).fill().map((_, columnIndex) => {
+          const letter = String.fromCharCode(65 + Math.round(Math.random() * 10000) % 26)
+          const mode = rowIndex === 0 ? 'orange' : (
+            rowIndex === 12 ? 'blue' : ''
+          )
+          return {
+            mode,
+            letter,
+          }
+        })
+      })
+    })
+  }
+
   handleValue = ({ target }) => {
     const { row, column } = target.dataset
     const { value } = target
