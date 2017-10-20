@@ -11,9 +11,11 @@ script to help you find better word combinations.
 
 ### Running
 
+By default this will run on `localhost:8080`.
+
 ~~~
 git clone git@github.com:blainesch/baser-react.git
 cd baser-react
-npm install
-npm start
+yarn
+yarn start
 ~~~

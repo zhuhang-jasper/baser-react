@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import classnames from 'classnames'
+import { dictionary } from './lib/dictionary'
 
 class Board extends Component {
+  static propTypes = {
+    handleFindWords: React.PropTypes.func.isRequired,
+  }
+
   constructor (props) {
     super(props)
     this.state = {
@@ -10,6 +15,10 @@ class Board extends Component {
         return Array(10).fill().map(() => ({}))
       })
     }
+  }
+
+  findWords = () => {
+    this.props.handleFindWords(this.state.board)
   }
 
   generateTestData = () => {
@@ -116,11 +125,16 @@ class App extends Component {
     }
   }
 
-  onModeChange = (e) => {
+  handleModeChange = (e) => {
     const mode = e.target.id
     this.setState({
       mode,
     })
+  }
+
+  handleFindWords (board) {
+    const result = dictionary.isValidPrefix('meow')
+    console.log('meow is a word', result)
   }
 
   render() {
@@ -130,7 +144,7 @@ class App extends Component {
       <div>
         <ForkMe />
         <h2>Wordbase Helper</h2>
-        <Board mode={mode} />
+        <Board handleFindWords={this.handleFindWords} mode={mode} />
         <div className="tools">
           <h3>Tools</h3>
           <ul>
@@ -140,7 +154,7 @@ class App extends Component {
                 type="radio"
                 name="mode"
                 defaultChecked={this.state.mode === 'typing'}
-                onChange={this.onModeChange} />
+                onChange={this.handleModeChange} />
               <label htmlFor="typing">Typing</label>
             </li>
             <li>
@@ -149,7 +163,7 @@ class App extends Component {
                 type="radio"
                 name="mode"
                 defaultChecked={this.state.mode === 'orange'}
-                onChange={this.onModeChange} />
+                onChange={this.handleModeChange} />
               <label htmlFor="orange">Opponent Color</label>
             </li>
             <li>
@@ -158,7 +172,7 @@ class App extends Component {
                 type="radio"
                 name="mode"
                 defaultChecked={this.state.mode === 'blue'}
-                onChange={this.onModeChange} />
+                onChange={this.handleModeChange} />
               <label htmlFor="blue">My Color</label>
             </li>
             <li>
@@ -167,7 +181,7 @@ class App extends Component {
                 type="radio"
                 name="mode"
                 defaultChecked={this.state.mode === 'clear'}
-                onChange={this.onModeChange} />
+                onChange={this.handleModeChange} />
               <label htmlFor="clear">Clear Color</label>
             </li>
           </ul>
