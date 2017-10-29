@@ -3,9 +3,57 @@ import { render } from 'react-dom'
 import classnames from 'classnames'
 import { dictionary } from './lib/dictionary'
 
+class Word {
+  constructor (nodes) {
+    this.nodes = nodes
+  }
+
+  push (node) {
+    this.nodes.push(node)
+    return this
+  }
+
+  clone () {
+    return new Word(this.nodes.slice(0))
+  }
+
+  findWords () {
+    const last = this.nodes[this.nodes.length - 1]
+    return last.sibs.map((sib) => {
+      if (!this.nodes.includes(sib)) {
+        return this.clone().push(sib)
+      }
+    }).reduce((memo, word) => {
+      if (word) {
+        if (word.isWord()) {
+          memo.push(word)
+        }
+        if (word.isPossibleWord()) {
+          return [...memo, ...word.findWords()]
+        }
+      }
+      return memo
+    }, [])
+  }
+
+  toString () {
+    return this.nodes.map((node) => {
+      return node.letter
+    }).join('').toLowerCase()
+  }
+
+  isWord () {
+    return dictionary.lookup(this.toString())
+  }
+
+  isPossibleWord () {
+    return this.isWord() || dictionary.isValidPrefix(this.toString())
+  }
+}
+
 class Board extends Component {
   static propTypes = {
-    handleFindWords: React.PropTypes.func.isRequired,
+    handleWords: React.PropTypes.func.isRequired,
   }
 
   constructor (props) {
@@ -18,7 +66,32 @@ class Board extends Component {
   }
 
   findWords = () => {
-    this.props.handleFindWords(this.state.board)
+    const directions = [
+      [0, -1], [0, 1], [-1, 0], [1, 0], [1, -1], [-1, -1], [1, 1], [-1, 1]
+    ]
+    const board = this.state.board.map((row) => {
+      return row.map((cell) => ({ ...cell }))
+    })
+
+    board.map((row, ri) => {
+      return row.map((cell, ci) => {
+        cell.sibs = directions.map((dir) => {
+          return board[ri + dir[0]] && board[ri + dir[0]][ci + dir[1]]
+        }).filter(Boolean)
+      })
+    })
+
+    this.props.handleWords(board.map((row) => {
+      return row.reduce((memo, cell) => {
+        if (cell.mode === 'blue') {
+          const word = new Word([cell])
+          return [...memo, ...word.findWords()]
+        }
+        return memo
+      })
+    }).reduce((memo, item) => {
+      return [...memo, ...item]
+    }, []))
   }
 
   generateTestData = () => {
@@ -121,6 +194,7 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
+      words: [],
       mode: 'typing',
     }
   }
@@ -132,9 +206,8 @@ class App extends Component {
     })
   }
 
-  handleFindWords (board) {
-    const result = dictionary.isValidPrefix('meow')
-    console.log('meow is a word', result)
+  handleWords = (words) => {
+    this.setState({words})
   }
 
   render() {
@@ -144,7 +217,7 @@ class App extends Component {
       <div>
         <ForkMe />
         <h2>Wordbase Helper</h2>
-        <Board handleFindWords={this.handleFindWords} mode={mode} />
+        <Board handleWords={this.handleWords} mode={mode} />
         <div className="tools">
           <h3>Tools</h3>
           <ul>
@@ -196,7 +269,9 @@ class App extends Component {
             </select>
           </h3>
           <ul className="words">
-            <li onClick={this.highlightWord}>Meow</li>
+            { this.state.words.map((word) => {
+              return <li>{word.toString()}</li>
+            }) }
           </ul>
         </div>
       </div>
