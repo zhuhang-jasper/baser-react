@@ -75,6 +75,7 @@ class Board extends Component {
 
     board.map((row, ri) => {
       return row.map((cell, ci) => {
+        cell.pos = { ri, ci }
         cell.sibs = directions.map((dir) => {
           return board[ri + dir[0]] && board[ri + dir[0]][ci + dir[1]]
         }).filter(Boolean)
@@ -196,6 +197,7 @@ class App extends Component {
     this.state = {
       words: [],
       mode: 'typing',
+      order: 'Length',
     }
   }
 
@@ -210,8 +212,39 @@ class App extends Component {
     this.setState({words})
   }
 
+  changeSortOrder = ({ target }) => {
+    this.setState({
+      order: target.value,
+    })
+  }
+
+  sort = {
+    Lowest (a, b) {
+      const lowestA = a.nodes.reduce((memo, node) => {
+        return Math.min(memo, node.pos.ri)
+      })
+      const lowestB = a.nodes.reduce((memo, node) => {
+        return Math.min(memo, node.pos.ri)
+      })
+      return lowestA > lowestB ? 1 : -1
+    },
+    Highest (a, b) {
+      const highestA = a.nodes.reduce((memo, node) => {
+        return Math.max(memo, node.pos.ri)
+      })
+      const highestB = a.nodes.reduce((memo, node) => {
+        return Math.max(memo, node.pos.ri)
+      })
+      return highestA > highestB ? -1 : 1
+    },
+    Length (a, b) {
+      return a.toString().length > b.toString().length ? -1 : 1
+    }
+  }
+
+
   render() {
-    const { mode } = this.state
+    const { mode, order } = this.state
 
     return (
       <div>
@@ -262,14 +295,14 @@ class App extends Component {
         <div className="answers">
           <h3>
             <span>Word List</span>
-            <select onChange={this.orderWords}>
+            <select onChange={this.changeSortOrder}>
               <option value="Length">Length</option>
               <option value="Highest">Highest</option>
               <option value="Lowest">Lowest</option>
             </select>
           </h3>
           <ul className="words">
-            { this.state.words.map((word) => {
+            { this.state.words.sort(this.sort[order]).map((word) => {
               return <li>{word.toString()}</li>
             }) }
           </ul>
