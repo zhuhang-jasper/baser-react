@@ -305,7 +305,7 @@ class App extends Component {
           </h3>
           <ul className="words">
             { this.state.words.sort(this.sort[order]).map((word) => {
-              return <li>{word.toString()}</li>
+              return <li><span>{word.toString()}</span></li>
             }) }
           </ul>
         </div>
