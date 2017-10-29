@@ -135,6 +135,8 @@ class Board extends Component {
     const { mode } = this.props
     const { row, column } = target.dataset
 
+    if (mode === 'typing') return
+
     this.setState({
       board: Array(13).fill().map((_, rowIndex) => {
         return Array(10).fill().map((_, columnIndex) => {
