@@ -5,6 +5,7 @@ import { Word } from './word'
 class Board extends Component {
   static propTypes = {
     handleWords: React.PropTypes.func.isRequired,
+    selectedWord: React.PropTypes.object.isRequired,
   }
 
   constructor (props) {

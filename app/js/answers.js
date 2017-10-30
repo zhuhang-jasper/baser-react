@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import { AnswerItem } from './answerItem'
 
 class Answers extends Component {
+  static propTypes = {
+    handleClick: React.PropTypes.func.isRequired,
+    selectedWord: React.PropTypes.object.isRequired,
+    words: React.PropTypes.array.isRequired,
+  }
+
   constructor (props) {
     super(props)
     this.state = {
