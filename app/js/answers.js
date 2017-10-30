@@ -16,17 +16,26 @@ class Answers extends Component {
   }
 
   sort = {
-    Lowest (a, b) { const scoreA = a.nodes.reduce((memo, node) => Math.min(memo, node.pos.ri))
+    Lowest (a, b) {
+      const scoreA = a.nodes.reduce((memo, node) => Math.min(memo, node.pos.ri))
       const scoreB = a.nodes.reduce((memo, node) => Math.min(memo, node.pos.ri))
-      return scoreA > scoreB ? 1 : -1
+      if (scoreA > scoreB) return 1
+      if (scoreA < scoreB) return -1
+      return a.toString() > b.toString() ? 1 : -1
     },
     Highest (a, b) {
       const scoreA = a.nodes.reduce((memo, node) => Math.max(memo, node.pos.ri))
       const scoreB = a.nodes.reduce((memo, node) => Math.max(memo, node.pos.ri))
-      return scoreA > scoreB ? -1 : 1
+      if (scoreA > scoreB) return -1
+      if (scoreA < scoreB) return 1
+      return a.toString() > b.toString() ? 1 : -1
     },
     Length (a, b) {
-      return a.toString().length > b.toString().length ? -1 : 1
+      const lenA = a.toString().length
+      const lenB = b.toString().length
+      if (lenA > lenB) return -1
+      if (lenA < lenB) return 1
+      return a.toString() > b.toString() ? 1 : -1
     },
   }
 
