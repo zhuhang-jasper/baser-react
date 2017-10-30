@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --inline --progress --colors --content-base app/",
     "prebuild": "rm -rf dist",
     "build": "webpack --progress --colors",
-    "prepublish": "npm run build",
+    "prepublish": "webpack --progress --colors --config ./webpack.prod.config.js",
     "publish": "gh-pages -t -d ./dist"
   },
   "author": "Blaine Schmeisser",
