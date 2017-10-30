@@ -16,6 +16,6 @@ By default this will run on `localhost:8080`.
 ~~~
 git clone git@github.com:blainesch/baser-react.git
 cd baser-react
-yarn
-yarn start
+npm install
+npm start
 ~~~
