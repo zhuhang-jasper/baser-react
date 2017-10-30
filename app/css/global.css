@@ -53,7 +53,9 @@ div.tools .words span {
   cursor: hand;
 }
 div.answers .words span:hover,
-div.tools .words span:hover {
+div.tools .words span:hover,
+div.answers .words span.selected,
+div.tools .words span.selected {
   background-color: #e6e6e6;
 }
 div.answers h3,
@@ -94,6 +96,9 @@ ul.board input.orange {
 }
 ul.board input.blue {
   background-color: #50d5eb;
+}
+ul.board input.selected {
+  background-color: #16a7bf;
 }
 input[type=submit] {
   margin: 10px 10px 30px 0;

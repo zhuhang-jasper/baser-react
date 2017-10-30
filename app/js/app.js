@@ -4,6 +4,7 @@ import { Board } from './board'
 import { ForkMe } from './forkme'
 import { Answers } from './answers'
 import { Tools } from './tools'
+import { Word } from './word'
 
 class App extends Component {
   constructor (props) {
@@ -11,6 +12,7 @@ class App extends Component {
     this.state = {
       words: [],
       mode: 'typing',
+      selectedWord: new Word(),
     }
   }
 
@@ -27,14 +29,14 @@ class App extends Component {
   }
 
   render() {
-    const { mode, words } = this.state
+    const { mode, words, selectedWord } = this.state
 
     return (
       <div>
         <ForkMe />
         <h2>Wordbase Helper</h2>
         <Board
-          selectedWord={this.selectedWord}
+          selectedWord={selectedWord}
           handleWords={this.handleWords}
           mode={mode} />
         <Tools
@@ -42,6 +44,7 @@ class App extends Component {
           mode={mode} />
         <Answers
           handleClick={this.handleSelectWord}
+          selectedWord={selectedWord}
           words={words} />
       </div>
     )

@@ -31,7 +31,7 @@ class Answers extends Component {
   }
 
   render () {
-    const { words, handleClick } = this.props
+    const { words, handleClick, selectedWord } = this.props
     const { order } = this.state
 
     return (
@@ -45,8 +45,14 @@ class Answers extends Component {
           </select>
         </h3>
         <ul className="words">
-          { words.sort(this.sort[order]).map((word) => {
-            return <AnswerItem handleClick={handleClick} word={word} />
+          { words.sort(this.sort[order]).map((word, i) => {
+            return (
+              <AnswerItem
+                key={i}
+                selected={word === selectedWord}
+                handleClick={handleClick}
+                word={word} />
+            )
           }) }
         </ul>
       </div>

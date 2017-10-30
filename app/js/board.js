@@ -7,7 +7,8 @@ class Board extends Component {
     handleWords: React.PropTypes.func.isRequired,
   }
 
-  constructor (props) { super(props)
+  constructor (props) {
+    super(props)
     this.state = {
       board: Array(13).fill().map(() => {
         return Array(10).fill().map(() => ({}))
@@ -47,11 +48,11 @@ class Board extends Component {
 
   generateTestData = () => {
     this.setState({
-      board: Array(13).fill().map((_, rowIndex) => {
-        return Array(10).fill().map((_, columnIndex) => {
+      board: Array(13).fill().map((_, ri) => {
+        return Array(10).fill().map((_, ci) => {
           const letter = String.fromCharCode(65 + Math.round(Math.random() * 10000) % 26)
-          const mode = rowIndex === 0 ? 'orange' : (
-            rowIndex === 12 ? 'blue' : ''
+          const mode = ri === 0 ? 'orange' : (
+            ri === 12 ? 'blue' : ''
           )
           return {
             mode,
@@ -67,15 +68,15 @@ class Board extends Component {
     const { value } = target
 
     this.setState({
-      board: Array(13).fill().map((_, rowIndex) => {
-        return Array(10).fill().map((_, columnIndex) => {
-          if (row == rowIndex && column == columnIndex) {
+      board: Array(13).fill().map((_, ri) => {
+        return Array(10).fill().map((_, ci) => {
+          if (row == ri && column == ci) {
             return {
-              mode: this.state.board[rowIndex][columnIndex].mode,
+              mode: this.state.board[ri][ci].mode,
               letter: value.slice(0, 1).toUpperCase()
             }
           }
-          return this.state.board[rowIndex][columnIndex]
+          return this.state.board[ri][ci]
         })
       })
     })
@@ -88,37 +89,40 @@ class Board extends Component {
     if (mode === 'typing') return
 
     this.setState({
-      board: Array(13).fill().map((_, rowIndex) => {
-        return Array(10).fill().map((_, columnIndex) => {
-          if (row == rowIndex && column == columnIndex) {
+      board: Array(13).fill().map((_, ri) => {
+        return Array(10).fill().map((_, ci) => {
+          if (row == ri && column == ci) {
             return {
               mode,
-              letter: this.state.board[rowIndex][columnIndex].letter,
+              letter: this.state.board[ri][ci].letter,
             }
           }
-          return this.state.board[rowIndex][columnIndex]
+          return this.state.board[ri][ci]
         })
       })
     })
   }
 
   render () {
+    const { selectedWord } = this.props
     return (
       <div className="board">
         <ul className="board">
-          { this.state.board.map((row, rowIndex) => (
-            <li key={rowIndex}>
+          { this.state.board.map((row, ri) => (
+            <li key={ri}>
               <ul>
-                { row.map(({ letter, mode }, columnIndex) => {
+                { row.map((cell, ci) => {
+                  const { letter, mode } = cell
                   const classes = classnames({
                     [mode]: mode,
                     invalid: letter && !letter.match(/^[a-z]$/i),
+                    selected: selectedWord.includes(cell, { ri, ci })
                   })
-                  return <li key={columnIndex}>
+                  return <li key={ci}>
                     <input
                       className={classes}
-                      data-row={rowIndex}
-                      data-column={columnIndex}
+                      data-row={ri}
+                      data-column={ci}
                       value={letter}
                       onFocus={this.handleMode}
                       onChange={this.handleValue} />

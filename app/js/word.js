@@ -2,7 +2,7 @@ import { dictionary } from './lib/dictionary'
 
 class Word {
   constructor (nodes) {
-    this.nodes = nodes
+    this.nodes = nodes || []
   }
 
   clone (extra) {
@@ -28,6 +28,13 @@ class Word {
       }
       return memo
     }, [])
+  }
+
+  includes (needle, pos) {
+    const foundNode = this.nodes.find((node) => {
+      return node.pos.ri === pos.ri && node.pos.ci === pos.ci
+    })
+    return foundNode && foundNode.letter === needle.letter
   }
 
   toString () {
