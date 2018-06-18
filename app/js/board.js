@@ -73,7 +73,7 @@ class Board extends Component {
 	const newclass = mode === 'typing' ? target.className : mode
     const { row, column } = target.dataset
     const { value } = target
-	console.log('row=' + row + 'col=' + column + 'value=' + value + 'mode=' + newclass)
+	//console.log('row=' + row + 'col=' + column + 'value=' + value + 'mode=' + newclass)
 	
     this.setState({
       board: Array(13).fill().map((_, ri) => {

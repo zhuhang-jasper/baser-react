@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
 import { Board } from './board'
-import { ForkMe } from './forkme'
 import { Answers } from './answers'
 import { Tools } from './tools'
 import { Word } from './word'
@@ -33,8 +32,7 @@ class App extends Component {
 
     return (
       <div>
-        <ForkMe />
-        <h2>Wordbase Helper</h2>
+        <h2>Wordbaser++</h2>
         <Board
           selectedWord={selectedWord}
           handleWords={this.handleWords}
