@@ -46,7 +46,23 @@ class Board extends Component {
       return [...memo, ...item]
     }, []))
   }
-
+  
+  swapColor = () => {
+    this.setState({
+      board: Array(13).fill().map((_, ri) => {
+        return Array(10).fill().map((_, ci) => {
+          const letter = this.state.board[ri][ci].letter
+		  const prevMode = this.state.board[ri][ci].mode
+          const mode = prevMode === 'orange' ? 'blue' : prevMode === 'blue' ? 'orange' : ''
+          return {
+            mode,
+            letter,
+          }
+        })
+      })
+    })
+  }
+  
   generateTestData = () => {
     this.setState({
       board: Array(13).fill().map((_, ri) => {
@@ -158,9 +174,11 @@ class Board extends Component {
             </li>
           )) }
         </ul>
-		<input type="submit" value="Log Board" onClick={this.showBoard} />
+		<input type="submit" value="Clear" id="btnClear" />
+        <input type="submit" value="Swap" onClick={this.swapColor} />
         <input type="submit" value="Find Words" onClick={this.findWords} />
-        <input type="submit" value="Test Data" onClick={this.generateTestData} />
+        <input type="submit" value="Random" onClick={this.generateTestData} />
+		<input type="submit" value="Log" onClick={this.showBoard} />
       </div>
     )
   }

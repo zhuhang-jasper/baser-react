@@ -47,6 +47,11 @@
 		
 	});
 	
+	// Clear selected CSS on words
+	$('#btnClear').on('click',function(){
+		clearSelected();
+	})
+	
 	// @param board two-dimensional array
 	function fillBoard(board) {
 
@@ -70,6 +75,16 @@
 	
 	function fillOppColor(index) {
 		$('.board input[data-row="'+index+'"]').addClass('orange');
+	}
+	
+	function clearSelected() {
+		
+		for(var i = 0; i < 13; i++) {
+			for(var j = 0; j < 10; j++) {
+				$('.board input[data-row="'+i+'"][data-column="'+j+'"]').removeClass('selected');
+			}
+		}
+		
 	}
 	
 </script>
