@@ -23,10 +23,10 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       { from: 'app/css/global.css' },
-      { from: 'app/index.html' },
     ]),
     new HtmlWebpackPlugin({
-      template: 'app/index.html',
+	  filename: 'simulator.html',
+      template: 'app/simulator.html',
     }),
     /*
     new webpack.optimize.UglifyJsPlugin({

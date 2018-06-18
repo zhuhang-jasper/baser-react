@@ -2,16 +2,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
     <title>Wordbaser++</title>
     <link rel="stylesheet" href="./global.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
 </head>
 <body>
     <section id="react"></section>
-	<script type="text/javascript" src="./jquery.1.11.0.min.js"></script>
-	<script type="text/javascript" src="./bundle.min.js"></script>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -75,13 +72,5 @@
 		$('.board input[data-row="'+index+'"]').addClass('orange');
 	}
 	
-	function findReactElement(node) {
-		for (var key in node) {
-			if (key.startsWith("__reactInternalInstance$")) {
-				return node[key]._debugOwner.stateNode;
-			}
-		}
-		return null;
-	}
 </script>
 </html>
