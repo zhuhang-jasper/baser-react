@@ -63,11 +63,37 @@ class Board extends Component {
       })
     })
   }
+  
+  showBoard = ({ target }) => {
+	console.log(this.state.board)
+  }
+  
+  handleAll = ({ target }) => {
+	const { mode } = this.props
+	const newclass = mode === 'typing' ? target.className : mode
+    const { row, column } = target.dataset
+    const { value } = target
+	console.log('row=' + row + 'col=' + column + 'value=' + value + 'mode=' + newclass)
+	
+    this.setState({
+      board: Array(13).fill().map((_, ri) => {
+        return Array(10).fill().map((_, ci) => {
+          if (row == ri && column == ci) {
+            return {
+              mode: newclass,
+              letter: value.slice(0, 1).toUpperCase()
+            }
+          }
+          return this.state.board[ri][ci]
+        })
+      })
+    })
+  }
 
   handleValue = ({ target }) => {
     const { row, column } = target.dataset
     const { value } = target
-
+	
     this.setState({
       board: Array(13).fill().map((_, ri) => {
         return Array(10).fill().map((_, ci) => {
@@ -125,14 +151,14 @@ class Board extends Component {
                       data-row={ri}
                       data-column={ci}
                       value={letter}
-                      onFocus={this.handleMode}
-                      onChange={this.handleValue} />
+                      onFocus={this.handleAll} />
                   </li>
                 }) }
               </ul>
             </li>
           )) }
         </ul>
+		<input type="submit" value="Log Board" onClick={this.showBoard} />
         <input type="submit" value="Find Words" onClick={this.findWords} />
         <input type="submit" value="Test Data" onClick={this.generateTestData} />
       </div>
