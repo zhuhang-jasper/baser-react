@@ -1,5 +1,5 @@
 import trie from 'trie'
-import words from '../../static/ospd4.txt'
+import words from '../../static/words_alpha.txt'
 
 var dictionary = trie.createTrieFromArray(words.split('\n'));
 
