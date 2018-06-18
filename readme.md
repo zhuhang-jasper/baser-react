@@ -1,8 +1,6 @@
 ## Wordbaser++
 
-An enhanced version of [baser-react](https://github.com/blainesch/baser-react).
-
-A script to help you find better word combinations.
+An enhanced version of [baser-react](https://github.com/blainesch/baser-react). (A script to help you find better word combinations.)
 
 Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 
