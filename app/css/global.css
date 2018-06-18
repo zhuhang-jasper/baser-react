@@ -102,12 +102,12 @@ ul.board input.selected {
 }
 input[type=submit] {
   margin: 10px 10px 30px 0;
-  font-size: 20pt;
+  font-size: 16pt;
   border: 0;
   box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
   border-radius: 6px 6px 6px 6px;
   background-color: #22cae6;
-  padding: 10px;
+  padding: 5px;
   color: #fff;
   cursor: pointer;
   cursor: hand;
