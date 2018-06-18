@@ -11,7 +11,7 @@ Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 - Updated dictionary for more words (~396K)
 - Swap color sides
 - Clear selected words traced on the board
-*- TODO: Save/Load snapshot of board information*
+- *TODO: Save/Load snapshot of board information*
 
 ### Known Issues
 Pre-defined letters do not take effect immediately. You have to traverse through all letters ONCE. 
