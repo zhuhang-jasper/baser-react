@@ -7,18 +7,17 @@ An enhanced version of [baser-react](https://github.com/blainesch/baser-react). 
 Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 
 ### Enhancements
-- Able to pre-defined letters to board via JavaScript*
+- Able to pre-define letters to board via JavaScript. See tip\*\*
 - Updated dictionary for more words (~396K)
 - Swap color sides
 - Clear selected words traced on the board
 - *TODO: Save/Load snapshot of board information*
 
 ### Known Issues
-1. Pre-defined letters do not take effect immediately. You have to traverse through all letters ONCE. 
+1. Pre-defined letters do not rendered into react component. See tip\*\*
+2. Clear button did not clean in proper way.
 
 **Tip: Click the first letter (top left) and keep hitting 'TAB' button until you reach the last letter (bottom right).**
-
-2. Clear button did not clean in proper way.
 
 ### How to use
 1. npm install
