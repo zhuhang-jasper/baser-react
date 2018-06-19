@@ -20,7 +20,7 @@ Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 **Tip: Click the first letter (top left) and keep hitting 'TAB' button until you reach the last letter (bottom right).**
 
 ### How to use
-1. npm install
+1. Use `npm install` or Copy from 'gh-pages' branch.
 2. Open simulator.html JavaScript section, modify accordingly.
 3. See known issues before you 'Find Word'.
 
