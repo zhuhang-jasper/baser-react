@@ -23,6 +23,17 @@ body:after {
 a {
   color: #00B7FF;
 }
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-weight: normal;
+  line-height: 1.5em;
+  margin-top: -0.5em;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -30,6 +41,7 @@ ul {
 }
 div.answers,
 div.tools {
+  min-height: 100px;
   text-indent: 10px;
   max-width: 300px;
   margin-right: 20px;

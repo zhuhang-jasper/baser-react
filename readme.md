@@ -14,9 +14,11 @@ Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 - *TODO: Save/Load snapshot of board information*
 
 ### Known Issues
-Pre-defined letters do not take effect immediately. You have to traverse through all letters ONCE. 
+1. Pre-defined letters do not take effect immediately. You have to traverse through all letters ONCE. 
 
 **Tip: Click the first letter (top left) and keep hitting 'TAB' button until you reach the last letter (bottom right).**
+
+2. Clear button did not clean in proper way.
 
 ### How to use
 1. npm install
