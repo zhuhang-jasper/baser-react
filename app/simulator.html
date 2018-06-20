@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Wordbase Helper Enhanced</title>
     <link rel="stylesheet" href="./global.css">
+    <link href="favicon.ico" rel="shortcut icon">
 </head>
 <body>
     <section id="react"></section>
@@ -11,81 +12,75 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </body>
 <script type="text/javascript">
-	$(document).ready(function() {
-		
-		var board = new Array(0);
-		buildArray(board,"VILRIEOIYZ");
-		buildArray(board,"NTAMGNTGOP");
-		buildArray(board,"ECSEOCUOAC");
-		buildArray(board,"MANDAPSYLN");
-		buildArray(board,"LPSPEONSES");
-		buildArray(board,"TUDKOMATYL");
-		buildArray(board,"SEGLMSIGKO");
-		buildArray(board,"KINRENFRNR");
-		buildArray(board,"OSASREOUOA");
-		buildArray(board,"TKHVDLSYET");
-		buildArray(board,"YCINVALRUS");
-		buildArray(board,"EUAKEIGIAO");
-		buildArray(board,"KDLMRGNLEP");
-		/*buildArray(board,"CANDETGEOL");
-		buildArray(board,"HRALNUNSRE");
-		buildArray(board,"ILEMDICENF");
-		buildArray(board,"TDPOEALOAD");
-		buildArray(board,"PSKLFSEMGS");
-		buildArray(board,"TEDIAULDNO");
-		buildArray(board,"AKRATVNAIM");
-		buildArray(board,"LDSEDCERFA");
-		buildArray(board,"ATHUNLSFHL");
-		buildArray(board,"RPINGORSOT");
-		buildArray(board,"URKOBEOMSL");
-		buildArray(board,"LNONSPBIOA");
-		buildArray(board,"SICGITAMYC");*/
-	
-		fillBoard(board);
-		fillMyColor(0, board);
-		fillOppColor(12, board);
-		
-	});
-	
-	// Clear selected CSS on words
-	$('#btnClear').on('click',function(){
-		clearSelected();
-	})
-	
-	// @param board two-dimensional array
-	function fillBoard(board) {
+    $(document).ready(function() {
 
-		for(var i = 0; i < 13; i++) {
-			for(var j = 0; j < 10; j++) {
-				$('.board input[data-row="'+i+'"][data-column="'+j+'"]').val(board[i][j]).change();
-			}
-		}
-		
-	}
+        var board = new Array(0);
+        /*buildArray(board,"VILRIEOIYZ");
+        buildArray(board,"NTAMGNTGOP");
+        buildArray(board,"ECSEOCUOAC");
+        buildArray(board,"MANDAPSYLN");
+        buildArray(board,"LPSPEONSES");
+        buildArray(board,"TUDKOMATYL");
+        buildArray(board,"SEGLMSIGKO");
+        buildArray(board,"KINRENFRNR");
+        buildArray(board,"OSASREOUOA");
+        buildArray(board,"TKHVDLSYET");
+        buildArray(board,"YCINVALRUS");
+        buildArray(board,"EUAKEIGIAO");
+        buildArray(board,"KDLMRGNLEP");*/
+        buildArray(board,"CANDETGEOL");
+        buildArray(board,"HRALNUNSRE");
+        buildArray(board,"ILEMDICENF");
+        buildArray(board,"TDPOEALOAD");
+        buildArray(board,"PSKLFSEMGS");
+        buildArray(board,"TEDIAULDNO");
+        buildArray(board,"AKRATVNAIM");
+        buildArray(board,"LDSEDCERFA");
+        buildArray(board,"ATHUNLSFHL");
+        buildArray(board,"RPINGORSOT");
+        buildArray(board,"URKOBEOMSL");
+        buildArray(board,"LNONSPBIOA");
+        buildArray(board,"SICGITAMYC");
 
-	function buildArray(arr, string) {
-		
-		arr[arr.length] = string.split('');
-		return arr;
-	}
-	
-	function fillMyColor(index) {
-		$('.board input[data-row="'+index+'"]').addClass('blue');
-	}
-	
-	function fillOppColor(index) {
-		$('.board input[data-row="'+index+'"]').addClass('orange');
-	}
-	
-	function clearSelected() {
-		
-		for(var i = 0; i < 13; i++) {
-			for(var j = 0; j < 10; j++) {
-				$('.board input[data-row="'+i+'"][data-column="'+j+'"]').removeClass('selected');
-			}
-		}
-		
-	}
-	
+        fillBoard(board);
+        fillMyColor(0, board);
+        fillOppColor(12, board);
+
+    });
+
+    // Clear selected CSS on words
+    $('#btnClear').on('click',function(){
+        clearSelected();
+    })
+
+    // @param board two-dimensional array
+    function fillBoard(board) {
+        for(var i = 0; i < 13; i++) {
+            for(var j = 0; j < 10; j++) {
+                $('.board input[data-row="'+i+'"][data-column="'+j+'"]').val(board[i][j]).change();
+            }
+        }
+    }
+
+    function buildArray(arr, string) {
+        arr[arr.length] = string.split('');
+        return arr;
+    }
+
+    function fillMyColor(index) {
+        $('.board input[data-row="'+index+'"]').addClass('blue');
+    }
+
+    function fillOppColor(index) {
+        $('.board input[data-row="'+index+'"]').addClass('orange');
+    }
+
+    function clearSelected() {
+        for(var i = 0; i < 13; i++) {
+            for(var j = 0; j < 10; j++) {
+                $('.board input[data-row="'+i+'"][data-column="'+j+'"]').removeClass('selected');
+            }
+        }
+    }
 </script>
 </html>

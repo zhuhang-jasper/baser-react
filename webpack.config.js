@@ -23,6 +23,7 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       { from: 'app/css/global.css' },
+      { from: 'app/favicon.ico' },
     ]),
     new HtmlWebpackPlugin({
 	  filename: 'simulator.html',
