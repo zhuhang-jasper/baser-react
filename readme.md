@@ -10,7 +10,8 @@ Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 - Able to pre-define letters to board via JavaScript. See tip\*\*
 - Updated dictionary for more words (~396K)
 - Swap color sides
-- Clear selected words traced on the board
+- Clear selected words traced on the board (bug)
+- Fill words onto board from textarea input
 - *TODO: Save/Load snapshot of board information*
 
 ### Known Issues
