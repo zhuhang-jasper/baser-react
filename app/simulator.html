@@ -15,36 +15,22 @@
     $(document).ready(function() {
 
         var board = new Array(0);
-        /*buildArray(board,"VILRIEOIYZ");
-        buildArray(board,"NTAMGNTGOP");
-        buildArray(board,"ECSEOCUOAC");
-        buildArray(board,"MANDAPSYLN");
-        buildArray(board,"LPSPEONSES");
-        buildArray(board,"TUDKOMATYL");
-        buildArray(board,"SEGLMSIGKO");
-        buildArray(board,"KINRENFRNR");
-        buildArray(board,"OSASREOUOA");
-        buildArray(board,"TKHVDLSYET");
-        buildArray(board,"YCINVALRUS");
-        buildArray(board,"EUAKEIGIAO");
-        buildArray(board,"KDLMRGNLEP");*/
-        buildArray(board,"CANDETGEOL");
-        buildArray(board,"HRALNUNSRE");
-        buildArray(board,"ILEMDICENF");
-        buildArray(board,"TDPOEALOAD");
-        buildArray(board,"PSKLFSEMGS");
-        buildArray(board,"TEDIAULDNO");
-        buildArray(board,"AKRATVNAIM");
-        buildArray(board,"LDSEDCERFA");
-        buildArray(board,"ATHUNLSFHL");
-        buildArray(board,"RPINGORSOT");
-        buildArray(board,"URKOBEOMSL");
-        buildArray(board,"LNONSPBIOA");
-        buildArray(board,"SICGITAMYC");
-
+        board.push("");
+        board.push("WORD-BASER");
+        board.push(" PLUSPLUS ");
+        board.push("");
+        board.push(" BY:      ");
+        board.push(" ZHU HANG ");
+        board.push("");
+        board.push(" FROM: ");
+        board.push(" MALAYSIA ");
+        board.push("");
+        board.push(" GOODLUCK ");
+        board.push(" HAVE FUN ");
+        board.push("");
         fillBoard(board);
-        fillMyColor(0, board);
-        fillOppColor(12, board);
+        fillMyColor(0);
+        fillOppColor(12);
 
     });
 
@@ -53,13 +39,36 @@
         clearSelected();
     })
 
+    // Fill word button
+    $('#btnRenderWord').on('click',function(){
+        fillWords();
+        fillMyColor(0);
+        fillOppColor(12);
+    })
+
     // @param board two-dimensional array
     function fillBoard(board) {
-        for(var i = 0; i < 13; i++) {
-            for(var j = 0; j < 10; j++) {
+        for(var i = 0; i < board.length; i++) {
+            for(var j = 0; j < board[i].length; j++) {
                 $('.board input[data-row="'+i+'"][data-column="'+j+'"]').val(board[i][j]).change();
             }
         }
+    }
+
+    function fillWords() {
+        var lines = $('#txtArea').val().split(/\n/);
+        var texts = [];
+        for (var i=0; i < lines.length; i++) {
+          // only push this line if it contains a non whitespace character.
+          if (/\S/.test(lines[i])) {
+            texts.push($.trim(lines[i]));
+          }
+        }
+        console.log(texts);
+        if(texts.length == 13)
+            fillBoard(texts);
+        else
+            console.log('Invalid textarea input. Row=' + texts.length);
     }
 
     function buildArray(arr, string) {

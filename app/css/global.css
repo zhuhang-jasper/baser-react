@@ -81,6 +81,9 @@ div.tools h3 {
   text-align: center;
   margin-bottom: 10px;
 }
+div.tools {
+  display: flow-root;
+}
 div.answers h3 select,
 div.tools h3 select {
   margin-left: 10px;
@@ -129,4 +132,10 @@ input[type=submit]:hover {
 }
 section#react {
     display: grid;
+}
+#txtArea {
+  resize: none;
+  margin-left: 10px;
+  width: 100px;
+  float: left;
 }

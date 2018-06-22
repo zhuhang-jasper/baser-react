@@ -11,6 +11,7 @@ class Tools extends Component {
     return (
       <div className="tools">
         <h3>Tools</h3>
+        <textarea id="txtArea" rows="13" cols="10" placeholder="Enter words. Separate rows by next line."></textarea>
         <ul>
           <li>
             <input
@@ -48,6 +49,9 @@ class Tools extends Component {
               onChange={this.handleModeChange} />
             <label htmlFor="clear">Clear Color</label>
           </li>
+          <div align="center">
+            <input id="btnRenderWord" type="submit" value="Fill Words >>" />
+          </div>
         </ul>
       </div>
     )
