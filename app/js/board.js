@@ -52,7 +52,7 @@ class Board extends Component {
       board: Array(13).fill().map((_, ri) => {
         return Array(10).fill().map((_, ci) => {
           const letter = this.state.board[ri][ci].letter
-		  const prevMode = this.state.board[ri][ci].mode
+          const prevMode = this.state.board[ri][ci].mode
           const mode = prevMode === 'orange' ? 'blue' : prevMode === 'blue' ? 'orange' : ''
           return {
             mode,
@@ -80,17 +80,19 @@ class Board extends Component {
     })
   }
   
-  showBoard = ({ target }) => {
-	console.log(this.state.board)
+  logger = ({ target }) => {
+    console.log(this)
+    console.log(this.state)
+    console.log(this.props)
   }
   
   handleAll = ({ target }) => {
-	const { mode } = this.props
-	const newclass = mode === 'typing' ? target.className : mode
+    const { mode } = this.props
+    const newclass = mode === 'typing' ? target.className : mode
     const { row, column } = target.dataset
     const { value } = target
-	//console.log('row=' + row + 'col=' + column + 'value=' + value + 'mode=' + newclass)
-	
+    //console.log('row=' + row + 'col=' + column + 'value=' + value + 'mode=' + newclass)
+    
     this.setState({
       board: Array(13).fill().map((_, ri) => {
         return Array(10).fill().map((_, ci) => {
@@ -109,7 +111,7 @@ class Board extends Component {
   handleValue = ({ target }) => {
     const { row, column } = target.dataset
     const { value } = target
-	
+    
     this.setState({
       board: Array(13).fill().map((_, ri) => {
         return Array(10).fill().map((_, ci) => {
@@ -174,11 +176,11 @@ class Board extends Component {
             </li>
           )) }
         </ul>
-		<input type="submit" value="Clear" id="btnClear" />
+        <input type="submit" value="Clear" id="btnClear" onClick={this.props.selectedWord = '', this.state.selectedWord = ''} />
         <input type="submit" value="Swap" onClick={this.swapColor} />
         <input type="submit" value="Find Words" onClick={this.findWords} />
         <input type="submit" value="Random" onClick={this.generateTestData} />
-		<input type="submit" value="Log" onClick={this.showBoard} />
+        <input type="submit" value="Log" onClick={this.logger} />
       </div>
     )
   }
