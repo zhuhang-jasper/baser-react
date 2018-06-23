@@ -31,6 +31,7 @@
         fillBoard(board);
         fillMyColor(0);
         fillOppColor(12);
+        presetWords();
 
     });
 
@@ -45,6 +46,23 @@
         fillMyColor(0);
         fillOppColor(12);
     })
+
+    function presetWords() {
+        var text = "CANDETGEOL\n"
+        + "HRALNUNSRE\n"
+        + "ILEMDICENF\n"
+        + "TDPOEALOAD\n"
+        + "PSKLFSEMGS\n"
+        + "TEDIAULDNO\n"
+        + "AKRATVNAIM\n"
+        + "LDSEDCERFA\n"
+        + "ATHUNLSFHL\n"
+        + "RPINGORSOT\n"
+        + "URKOBEOMSL\n"
+        + "LNONSPBIOA\n"
+        + "SICGITAMYC"
+        $('#txtArea').val(text);
+    }
 
     // @param board two-dimensional array
     function fillBoard(board) {

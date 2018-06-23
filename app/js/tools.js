@@ -11,7 +11,7 @@ class Tools extends Component {
     return (
       <div className="tools">
         <h3>Tools</h3>
-        <textarea id="txtArea" rows="13" cols="10" placeholder="Enter words. Separate rows by next line."></textarea>
+        <textarea id="txtArea" rows="9" cols="10" placeholder="Enter words. Separate rows by next line."></textarea>
         <ul>
           <li>
             <input
