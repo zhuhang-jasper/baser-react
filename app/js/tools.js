@@ -29,7 +29,7 @@ class Tools extends Component {
               name="mode"
               defaultChecked={mode === 'orange'}
               onChange={this.handleModeChange} />
-            <label htmlFor="orange">Opponent Color</label>
+            <label htmlFor="orange">Orange color</label>
           </li>
           <li>
             <input
@@ -38,7 +38,7 @@ class Tools extends Component {
               name="mode"
               defaultChecked={mode === 'blue'}
               onChange={this.handleModeChange} />
-            <label htmlFor="blue">My Color</label>
+            <label htmlFor="blue">Blue color</label>
           </li>
           <li>
             <input
@@ -50,9 +50,7 @@ class Tools extends Component {
             <label htmlFor="clear">Clear Color</label>
           </li>
         </ul>
-        <div align="center">
-          <input id="btnRenderWord" type="submit" value="Fill >>" />
-        </div>
+        <input id="btnRenderWord" type="submit" value="To Board" />
       </div>
     )
   }

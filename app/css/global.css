@@ -39,6 +39,17 @@ ul {
   padding: 0;
   list-style: none;
 }
+section#react {
+  display: grid;
+}
+#txtArea {
+  resize: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100px;
+  float: left;
+}
+/* TOOLS & ANSWERS */
 div.answers,
 div.tools {
   min-height: 100px;
@@ -81,12 +92,20 @@ div.tools h3 {
   text-align: center;
   margin-bottom: 10px;
 }
-div.tools {
-  display: flow-root;
-}
 div.answers h3 select,
 div.tools h3 select {
   margin-left: 10px;
+  height: 21px;
+}
+div.tools {
+  display: flow-root;
+}
+div.tools input[type=submit] {
+margin: 10px 0px 0px 15px;
+}
+div.answers h3 input {
+  float: right;
+  /*margin-top: 3px;*/
 }
 div.board {
   float: right;
@@ -115,6 +134,7 @@ ul.board input.blue {
 ul.board input.selected {
   background-color: #16a7bf;
 }
+/* PRIMARY ACTION BUTTONS */
 input[type=submit] {
   margin: 10px 10px 30px 0;
   font-size: 16pt;
@@ -122,7 +142,7 @@ input[type=submit] {
   box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
   border-radius: 6px 6px 6px 6px;
   background-color: #22cae6;
-  padding: 5px;
+  padding: 5px 10px;
   color: #fff;
   cursor: pointer;
   cursor: hand;
@@ -130,19 +150,27 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #16a7bf;
 }
-section#react {
-  display: grid;
+/* NORMAL HTML BUTTONS */
+input[type=button] {
+  border: 0;
+  box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
+  border-radius: 4px 4px 4px 4px;
+  padding: 5px 10px;
+  color: #fff;
+  cursor: pointer;
+  cursor: hand;
 }
-#txtArea {
-  resize: none;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 100px;
-  float: left;
+/* GREEN BUTTON */
+input[type=button].green {
+  background-color: #00e673;
 }
-#btnRenderWord {
-  margin: 15px 0px 0px 5px;
+input[type=button].green:hover {
+  background-color: #00b359;
 }
-#btnClear {
-  float:right;
+/* RED BUTTON */
+input[type=button].red {
+  background-color: #ff5050;
+}
+input[type=button].red:hover {
+  background-color: #ef4545;
 }

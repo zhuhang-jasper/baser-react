@@ -62,7 +62,7 @@ class Answers extends Component {
             <option value="Highest">Highest</option>
             <option value="Lowest">Lowest</option>
           </select>
-          <input type="button" value="Clear" id="btnClear" onClick={this.clearWord} />
+          <input type="button" className="red" value="Clear" id="btnClear" onClick={this.clearWord} />
         </h3>
         <ul className="words">
           { words.sort(this.sort[order]).map((word, i) => {
