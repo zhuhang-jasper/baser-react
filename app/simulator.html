@@ -13,7 +13,116 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function() {
+        initBoard();
 
+        // Presets
+        addPreset("5K Wage","RTICADNOGI\nEBRSRISITR\nXULYMOANAC\nOTSAPTWMED\nPETCRSOETZ\nIRUIENSACI\nENLXVEFNLY\nIYISECEDAT\nRNORUHARIS\nTORTSDIMUD\nILEICLNILO\nEATEFPEOYL\nPDVFSECMPH");
+        addPreset("Christine","VILRIEOIYZ\nNTAMGNTGOP\nECSEOCUOAC\nMANDAPSYLN\nLPSPEONSES\nTUDKOMATYL\nSEGLMSIGKO\nKINRENFRNR\nOSASREOUOA\nTKHVDLSYET\nYCINVALRUS\nEUAKEIGIAO\nKDLMRGNLEP");
+        addPreset("towsinuija_","IGROPUDISR\nIRETMAVECE\nNSOYCMDNAO\nTANAKOTJNV\nDERTNSGUVE\nNISOCATIAR\nTEKELERERS\nCGSCMLDNCI\nRETOASIHOS\nOMLITNKCSD\nNGECHVMIRE\nMENLEUISMV\nSTRALADCAO");
+        addPreset("bxbxxj","LIDHBCNPGA\nOANETDOIOH\nLSMNUILRTS\nEITOPLBEIN\nANSRAMIACO\nNHTCYTSEUS\nDTIEDOMTXT\nINHSEMOYEI\nEGAXMGLMOG\nNRLIYIMSQU\nKIVFRCLASI\nEODNEKYPNE\nREIJOSHARI");
+
+        loadPresetList();
+    });
+
+    // Clear selected CSS on words
+    $('#btnClear').on('click',function(){
+        clearSelected();
+    })
+
+    // Fill word from textarea
+    $('#btnRenderWord').on('click',function(){
+        fillWords();
+    })
+
+    var presetList = new Array(0);
+    // Add preset to list
+    function addPreset(opponent, words) {
+        presetList.push([opponent,words]);
+    }
+
+    // Load preset lists into radio
+    function loadPresetList() {
+        for(var i = 0; i < presetList.length; i++) {
+            var ele = '<li><input type="radio" name="preset" value="'+presetList[i][0]+'" onChange="fetchPreset(this.value);" /><label>'+presetList[i][0]+'</label></li>';
+            $('#lstPreset').append(ele);
+        }
+    }
+
+    // Load word into textarea
+    function fetchPreset(opponent) {
+        for(var i = 0; i < presetList.length; i++) {
+            if(presetList[i][0] == opponent) {
+                $('#txtArea').val(presetList[i][1]);
+                break;
+            }
+        }
+        fillWords();
+    }
+
+    // @param board two-dimensional array
+    function fillBoard(board) {
+        for(var i = 0; i < board.length; i++) {
+            for(var j = 0; j < board[i].length; j++) {
+                $('.board input[data-row="'+i+'"][data-column="'+j+'"]').val(board[i][j]).change();
+            }
+        }
+        resetBoardColor();
+    }
+
+    // Load board from textarea
+    function fillWords() {
+        var lines = $('#txtArea').val().split(/\n/);
+        var texts = [];
+        for (var i=0; i < lines.length; i++) {
+          // only push this line if it contains a non whitespace character.
+          if (/\S/.test(lines[i])) {
+            texts.push($.trim(lines[i]));
+          }
+        }
+        //console.log(texts);
+        if(texts.length == 13)
+            fillBoard(texts);
+        else
+            console.log('Invalid textarea input. Row=' + texts.length);
+    }
+
+    // Depreciated
+    function buildArray(arr, string) {
+        arr[arr.length] = string.split('');
+        return arr;
+    }
+
+    function resetBoardColor() {
+        fillMyColor(0);
+        clearColor(1,11);
+        fillOppColor(12);
+    }
+
+    function fillMyColor(index) {
+        $('.board input[data-row="'+index+'"]').removeClass('orange').addClass('blue');
+    }
+
+    function clearColor(srow, erow) {
+        for(var i=srow;i<=erow;i++) {
+            $('.board input[data-row="'+i+'"]').removeClass('orange').removeClass('blue');
+        }
+    }
+
+    function fillOppColor(index) {
+        $('.board input[data-row="'+index+'"]').removeClass('blue').addClass('orange');
+    }
+
+    // Clear traced words
+    function clearSelected() {
+        for(var i = 0; i < 13; i++) {
+            for(var j = 0; j < 10; j++) {
+                $('.board input[data-row="'+i+'"][data-column="'+j+'"]').removeClass('selected');
+            }
+        }
+    }
+
+    // Initialise board content
+    function initBoard() {
         var board = new Array(0);
         board.push("");
         board.push("WORD-BASER");
@@ -29,85 +138,6 @@
         board.push(" HAVE FUN ");
         board.push("");
         fillBoard(board);
-        fillMyColor(0);
-        fillOppColor(12);
-        presetWords();
-
-    });
-
-    // Clear selected CSS on words
-    $('#btnClear').on('click',function(){
-        clearSelected();
-    })
-
-    // Fill word button
-    $('#btnRenderWord').on('click',function(){
-        fillWords();
-        fillMyColor(0);
-        fillOppColor(12);
-    })
-
-    function presetWords() {
-        var text = "CANDETGEOL\n"
-        + "HRALNUNSRE\n"
-        + "ILEMDICENF\n"
-        + "TDPOEALOAD\n"
-        + "PSKLFSEMGS\n"
-        + "TEDIAULDNO\n"
-        + "AKRATVNAIM\n"
-        + "LDSEDCERFA\n"
-        + "ATHUNLSFHL\n"
-        + "RPINGORSOT\n"
-        + "URKOBEOMSL\n"
-        + "LNONSPBIOA\n"
-        + "SICGITAMYC"
-        $('#txtArea').val(text);
-    }
-
-    // @param board two-dimensional array
-    function fillBoard(board) {
-        for(var i = 0; i < board.length; i++) {
-            for(var j = 0; j < board[i].length; j++) {
-                $('.board input[data-row="'+i+'"][data-column="'+j+'"]').val(board[i][j]).change();
-            }
-        }
-    }
-
-    function fillWords() {
-        var lines = $('#txtArea').val().split(/\n/);
-        var texts = [];
-        for (var i=0; i < lines.length; i++) {
-          // only push this line if it contains a non whitespace character.
-          if (/\S/.test(lines[i])) {
-            texts.push($.trim(lines[i]));
-          }
-        }
-        console.log(texts);
-        if(texts.length == 13)
-            fillBoard(texts);
-        else
-            console.log('Invalid textarea input. Row=' + texts.length);
-    }
-
-    function buildArray(arr, string) {
-        arr[arr.length] = string.split('');
-        return arr;
-    }
-
-    function fillMyColor(index) {
-        $('.board input[data-row="'+index+'"]').addClass('blue');
-    }
-
-    function fillOppColor(index) {
-        $('.board input[data-row="'+index+'"]').addClass('orange');
-    }
-
-    function clearSelected() {
-        for(var i = 0; i < 13; i++) {
-            for(var j = 0; j < 10; j++) {
-                $('.board input[data-row="'+i+'"][data-column="'+j+'"]').removeClass('selected');
-            }
-        }
     }
 </script>
 </html>

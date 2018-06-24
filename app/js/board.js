@@ -6,6 +6,7 @@ class Board extends Component {
   static propTypes = {
     handleWords: React.PropTypes.func.isRequired,
     selectedWord: React.PropTypes.object.isRequired,
+    logger: React.PropTypes.func.isRequired,
   }
 
   constructor (props) {
@@ -46,7 +47,7 @@ class Board extends Component {
       return [...memo, ...item]
     }, []))
   }
-  
+
   swapColor = () => {
     this.setState({
       board: Array(13).fill().map((_, ri) => {
@@ -62,7 +63,7 @@ class Board extends Component {
       })
     })
   }
-  
+
   generateTestData = () => {
     this.setState({
       board: Array(13).fill().map((_, ri) => {
@@ -79,20 +80,26 @@ class Board extends Component {
       })
     })
   }
-  
-  logger = ({ target }) => {
-    console.log(this)
-    console.log(this.state)
-    console.log(this.props)
+
+  resetBoard() {
+    this.state = {
+      board: Array(13).fill().map(() => {
+        return Array(10).fill().map(() => ({}))
+      })
+    }
   }
-  
+
+  logInfo = () => {
+    this.props.logger()
+  }
+
   handleAll = ({ target }) => {
     const { mode } = this.props
     const newclass = mode === 'typing' ? target.className : mode
     const { row, column } = target.dataset
     const { value } = target
     //console.log('row=' + row + 'col=' + column + 'value=' + value + 'mode=' + newclass)
-    
+
     this.setState({
       board: Array(13).fill().map((_, ri) => {
         return Array(10).fill().map((_, ci) => {
@@ -176,11 +183,10 @@ class Board extends Component {
             </li>
           )) }
         </ul>
-        <input type="submit" value="Clear" id="btnClear" onClick={this.props.selectedWord = '', this.state.selectedWord = ''} />
         <input type="submit" value="Swap" onClick={this.swapColor} />
         <input type="submit" value="Find Words" onClick={this.findWords} />
         <input type="submit" value="Random" onClick={this.generateTestData} />
-        <input type="submit" value="Log" onClick={this.logger} />
+        <input type="submit" value="Log" onClick={this.logInfo} />
       </div>
     )
   }
