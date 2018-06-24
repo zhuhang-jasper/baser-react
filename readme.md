@@ -16,10 +16,10 @@ Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 - *TODO: Undo/Redo move*
 
 ### Known Issues
-1. Letters filled from textarea do not render into react component. See tip\*\*
-2. Cannot load board preset once the board was rendered.
+1. Letters filled from textarea do not render into react component. See tip1\*\*
+2. Cannot load board preset once the board was rendered. Use 'Clean' button.
 
-**Tip: Click the first letter (top left) and keep hitting 'TAB' button until you reach the last letter (bottom right).**
+**Tip1: Click the first letter (top left) and keep hitting 'TAB' button until you reach the last letter (bottom right).**
 
 ### How to use
 1. Use `npm install`

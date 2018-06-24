@@ -32,6 +32,11 @@
         fillLetters();
     })
 
+    // Clean board
+    $('input[type=submit][value=Clean]').on('click',function(){
+        cleanBoard();
+    })
+
     var presetList = new Array(0);
     // Add preset to list
     function addPreset(opponent, words) {
@@ -92,6 +97,14 @@
     function buildArray(arr, string) {
         arr[arr.length] = string.split('');
         return arr;
+    }
+
+    function cleanBoard() {
+        for(var i = 0; i < 13; i++) {
+            for(var j = 0; j < 10; j++) {
+                $('.board input[data-row="'+i+'"][data-column="'+j+'"]').val('');
+            }
+        }
     }
 
     function resetBoardColor() {

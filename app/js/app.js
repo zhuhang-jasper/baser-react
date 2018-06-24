@@ -19,6 +19,14 @@ class App extends Component {
     console.log(this.state)
   }
 
+  resetState= () => {
+    this.setState({
+      words: [],
+      mode: 'typing',
+      selectedWord: new Word(),
+    })
+  }
+
   handleModeChange = (mode) => {
     this.setState({ mode })
   }
@@ -38,10 +46,11 @@ class App extends Component {
       <div>
         <div className="header">
             <h1>Wordbaser++</h1>
-            <h3>Enhanced version of Wordbase Helper from <a href="http://blainesch.com/baser-react/">blainesch/baser-react</a> .<br/>
-            GitHub - <a href="https://github.com/zhuhang-jasper/wordbaser.plusplus">zhuhang-jasper/wordbaser.plusplus</a> .</h3>
+            <h3>Enhanced version of Wordbase Helper from <a href="http://blainesch.com/baser-react/">blainesch/baser-react</a>.<br/>
+            GitHub - <a href="https://github.com/zhuhang-jasper/wordbaser.plusplus">zhuhang-jasper/wordbaser.plusplus</a>.</h3>
         </div>
         <Board
+          resetState={this.resetState}
           logger={this.logger}
           selectedWord={selectedWord}
           handleWords={this.handleWords}

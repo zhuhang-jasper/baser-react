@@ -7,6 +7,7 @@ class Board extends Component {
     handleWords: React.PropTypes.func.isRequired,
     selectedWord: React.PropTypes.object.isRequired,
     logger: React.PropTypes.func.isRequired,
+    resetState: React.PropTypes.func.isRequired,
   }
 
   constructor (props) {
@@ -81,15 +82,17 @@ class Board extends Component {
     })
   }
 
-  resetBoard() {
-    this.state = {
+  resetBoard = () => {
+    this.setState({
       board: Array(13).fill().map(() => {
         return Array(10).fill().map(() => ({}))
       })
-    }
+    })
+    this.props.resetState()
   }
 
   logInfo = () => {
+    console.log(this.state)
     this.props.logger()
   }
 
@@ -159,6 +162,7 @@ class Board extends Component {
     const { selectedWord } = this.props
     return (
       <div className="board">
+        <input type="submit" value="Clean" onClick={this.resetBoard} />
         <ul className="board">
           { this.state.board.map((row, ri) => (
             <li key={ri}>
@@ -183,10 +187,12 @@ class Board extends Component {
             </li>
           )) }
         </ul>
-        <input type="submit" value="Swap" onClick={this.swapColor} />
-        <input type="submit" value="Find Words" onClick={this.findWords} />
-        <input type="submit" value="Random" onClick={this.generateTestData} />
-        <input type="submit" value="Log" onClick={this.logInfo} />
+        <div className="button-group">
+            <input type="submit" value="Swap" onClick={this.swapColor} />
+            <input type="submit" value="Find Words" onClick={this.findWords} />
+            <input type="submit" value="Random" onClick={this.generateTestData} />
+            <input type="submit" value="Log" onClick={this.logInfo} />
+        </div>
       </div>
     )
   }
