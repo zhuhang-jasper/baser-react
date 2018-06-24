@@ -12,6 +12,8 @@ Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 - Clear selected words traced on the board
 - Fill words onto board from textarea input (bug) See tip\*\*
 - Board Preset snapshots (requires modification at Javascript)
+- *TODO: Apply color change on selected move*
+- *TODO: Undo/Redo move*
 
 ### Known Issues
 1. Letters filled from textarea do not render into react component. See tip\*\*
