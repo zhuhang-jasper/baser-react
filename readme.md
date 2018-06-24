@@ -7,15 +7,15 @@ An enhanced version of [baser-react](https://github.com/blainesch/baser-react). 
 Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 
 ### Enhancements
-- ~~Updated dictionary for more words (~396K)~~
+- ~~Updated dictionary for more words (396K)~~
 - Swap color sides
 - Clear selected words traced on the board
 - Fill words onto board from textarea input (bug) See tip\*\*
-- Add board preset in Javascript
+- Board Preset snapshots (requires modification at Javascript)
 
 ### Known Issues
-1. Pre-defined letters do not rendered into react component. See tip\*\*
-2. Cannot fill words once board was rendered previously.
+1. Letters filled from textarea do not render into react component. See tip\*\*
+2. Cannot load board preset once the board was rendered.
 
 **Tip: Click the first letter (top left) and keep hitting 'TAB' button until you reach the last letter (bottom right).**
 
