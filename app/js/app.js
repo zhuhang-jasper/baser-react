@@ -46,10 +46,6 @@ class App extends Component {
           selectedWord={selectedWord}
           handleWords={this.handleWords}
           mode={mode} />
-        <div className="tools">
-            <h3>Board Presets</h3>
-            <ul id="lstPreset"></ul>
-        </div>
         <Tools
           handleModeChange={this.handleModeChange}
           mode={mode} />

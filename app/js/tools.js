@@ -11,6 +11,10 @@ class Tools extends Component {
     return (
       <div className="tools">
         <h3>Tools</h3>
+        <div className="content">
+        <div className="subTitle">Board Preset:</div>
+        <ul id="lstPreset"></ul>
+        <hr />
         <ul>
           <textarea id="txtArea" rows="8" cols="10" placeholder="Enter words. Separate rows by next line."></textarea>
           <li>
@@ -51,6 +55,7 @@ class Tools extends Component {
           </li>
         </ul>
         <input id="btnRenderWord" type="submit" value="To Board" />
+        </div>
       </div>
     )
   }

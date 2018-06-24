@@ -1,7 +1,7 @@
 body {
   max-width: 800px;
   margin: 0 auto;
-  padding: 50px;
+  padding: 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 body:before,
@@ -39,15 +39,8 @@ ul {
   padding: 0;
   list-style: none;
 }
-section#react {
-  display: grid;
-}
-#txtArea {
-  resize: none;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 100px;
-  float: left;
+hr {
+  margin: 10px 0px;
 }
 /* TOOLS & ANSWERS */
 div.answers,
@@ -59,12 +52,12 @@ div.tools {
   margin-bottom: 20px;
   border: 1px solid #2e3641;
   border-top: 0;
-  padding-bottom: 10px;
+  /*padding-bottom: 10px;*/
   border-radius: 6px 6px 3px 3px;
 }
 div.answers .words,
 div.tools .words {
-  max-height: 275px;
+  max-height: 200px;
   overflow: auto;
 }
 div.answers .words span,
@@ -74,12 +67,15 @@ div.tools .words span {
   padding: 3px;
   cursor: pointer;
   cursor: hand;
+  font-size: 16px;
 }
 div.answers .words span:hover,
-div.tools .words span:hover,
+div.tools .words span:hover{
+  background-color: #e6e6e6;
+}
 div.answers .words span.selected,
 div.tools .words span.selected {
-  background-color: #e6e6e6;
+  background-color: #16a7bf;
 }
 div.answers h3,
 div.tools h3 {
@@ -88,17 +84,25 @@ div.tools h3 {
   background-color: #2e3641;
   color: #fff;
   margin: 0;
-  padding: 10px;
+  padding: 8px;
   text-align: center;
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
 }
 div.answers h3 select,
 div.tools h3 select {
-  margin-left: 10px;
+  margin-left: 15px;
   height: 21px;
 }
 div.tools {
   display: flow-root;
+}
+div.answers div.content,
+div.tools div.content {
+  padding: 5px;
+}
+div.answers div.content div.subTitle,
+div.tools div.content div.subTitle {
+  margin: 6px 0px;
 }
 div.tools input[type=submit] {
 margin: 10px 0px 0px 15px;
@@ -173,4 +177,18 @@ input[type=button].red {
 }
 input[type=button].red:hover {
   background-color: #ef4545;
+}
+section#react {
+  display: grid;
+}
+#txtArea {
+  resize: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 100px;
+  float: left;
+}
+#lstPreset {
+  margin-left: 5px;
 }

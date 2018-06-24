@@ -64,6 +64,7 @@ class Answers extends Component {
           </select>
           <input type="button" className="red" value="Clear" id="btnClear" onClick={this.clearWord} />
         </h3>
+        <div className="content">
         <ul className="words">
           { words.sort(this.sort[order]).map((word, i) => {
             return (
@@ -75,6 +76,7 @@ class Answers extends Component {
             )
           }) }
         </ul>
+        </div>
       </div>
     )
   }
