@@ -57,7 +57,7 @@ div.tools {
 }
 div.answers .words,
 div.tools .words {
-  max-height: 200px;
+  height: 224px;
   overflow: auto;
 }
 div.answers .words span,
@@ -67,7 +67,7 @@ div.tools .words span {
   padding: 3px;
   cursor: pointer;
   cursor: hand;
-  font-size: 16px;
+  font-size: 15px;
 }
 div.answers .words span:hover,
 div.tools .words span:hover{
@@ -100,9 +100,9 @@ div.answers div.content,
 div.tools div.content {
   padding: 5px;
 }
-div.answers div.content div.subTitle,
-div.tools div.content div.subTitle {
-  margin: 6px 0px;
+div.answers div.content div:first-child,
+div.tools div.content div:first-child {
+  margin-top: 5px;
 }
 div.tools input[type=submit] {
 margin: 10px 0px 0px 15px;
@@ -180,6 +180,7 @@ input[type=button].red:hover {
 }
 section#react {
   display: grid;
+  margin-bottom: 30px;
 }
 #txtArea {
   resize: none;
@@ -190,5 +191,11 @@ section#react {
   float: left;
 }
 #lstPreset {
-  margin-left: 5px;
+  margin-left: 10px;
+  height: 21px;
+  width: 150px;
+}
+.button-group {
+  position: absolute;
+  margin-top: 37px;
 }

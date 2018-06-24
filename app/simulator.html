@@ -15,21 +15,21 @@
     $(document).ready(function() {
         initBoard();
 
-        // Presets
+        // Add Board Presets
         addPreset("Christineee","VILRIEOIYZ\nNTAMGNTGOP\nECSEOCUOAC\nMANDAPSYLN\nLPSPEONSES\nTUDKOMATYL\nSEGLMSIGKO\nKINRENFRNR\nOSASREOUOA\nTKHVDLSYET\nYCINVALRUS\nEUAKEIGIAO\nKDLMRGNLEP");
         addPreset("towsinuija_","IGROPUDISR\nIRETMAVECE\nNSOYCMDNAO\nTANAKOTJNV\nDERTNSGUVE\nNISOCATIAR\nTEKELERERS\nCGSCMLDNCI\nRETOASIHOS\nOMLITNKCSD\nNGECHVMIRE\nMENLEUISMV\nSTRALADCAO");
 
-        loadPresetList();
+        populatePresetList();
     });
 
-    // Clear selected CSS on words
-    $('#btnClear').on('click',function(){
-        clearSelected();
+    // Load preset
+    $('#lstPreset').on('change',function(){
+        fetchPreset($(this).val());
     })
 
-    // Fill word from textarea
-    $('#btnRenderWord').on('click',function(){
-        fillWords();
+    // Fill letters from textarea
+    $('#btnFillLetters').on('click',function(){
+        fillLetters();
     })
 
     var presetList = new Array(0);
@@ -38,37 +38,31 @@
         presetList.push([opponent,words]);
     }
 
-    // Load preset lists into radio
-    function loadPresetList() {
+    // Populate board preset dropdown
+    function populatePresetList() {
         for(var i = 0; i < presetList.length; i++) {
-            var ele = '<li><input type="radio" name="preset" value="'+presetList[i][0]+'" onChange="fetchPreset(this.value);" /><label>'+presetList[i][0]+'</label></li>';
+            var ele = '<option value="'+presetList[i][0]+'">'+presetList[i][0]+'</option>';
             $('#lstPreset').append(ele);
         }
     }
 
-    // Load word into textarea
+    // Load preset letters into textarea
     function fetchPreset(opponent) {
+        if(opponent == '') {
+            $('#txtArea').val('');
+            return false;
+        }
         for(var i = 0; i < presetList.length; i++) {
             if(presetList[i][0] == opponent) {
                 $('#txtArea').val(presetList[i][1]);
                 break;
             }
         }
-        fillWords();
+        fillLetters();
     }
 
-    // @param board two-dimensional array
-    function fillBoard(board) {
-        for(var i = 0; i < board.length; i++) {
-            for(var j = 0; j < board[i].length; j++) {
-                $('.board input[data-row="'+i+'"][data-column="'+j+'"]').val(board[i][j]).change();
-            }
-        }
-        resetBoardColor();
-    }
-
-    // Load board from textarea
-    function fillWords() {
+    // Fill letters to board from textarea
+    function fillLetters() {
         var lines = $('#txtArea').val().split(/\n/);
         var texts = [];
         for (var i=0; i < lines.length; i++) {
@@ -82,6 +76,16 @@
             fillBoard(texts);
         else
             console.log('Invalid textarea input. Row=' + texts.length);
+    }
+
+    // @param board two-dimensional array / array of strings
+    function fillBoard(board) {
+        for(var i = 0; i < board.length; i++) {
+            for(var j = 0; j < board[i].length; j++) {
+                $('.board input[data-row="'+i+'"][data-column="'+j+'"]').val(board[i][j]).change();
+            }
+        }
+        resetBoardColor();
     }
 
     // Depreciated

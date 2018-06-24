@@ -12,8 +12,7 @@ class Tools extends Component {
       <div className="tools">
         <h3>Tools</h3>
         <div className="content">
-        <div className="subTitle">Board Preset:</div>
-        <ul id="lstPreset"></ul>
+        <div><span>Board Preset: </span><select id="lstPreset"><option value="">None</option></select></div>
         <hr />
         <ul>
           <textarea id="txtArea" rows="8" cols="10" placeholder="Enter words. Separate rows by next line."></textarea>
@@ -54,7 +53,7 @@ class Tools extends Component {
             <label htmlFor="clear">Clear Color</label>
           </li>
         </ul>
-        <input id="btnRenderWord" type="submit" value="To Board" />
+        <input id="btnFillLetters" type="submit" value="To Board" />
         </div>
       </div>
     )
