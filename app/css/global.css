@@ -131,11 +131,18 @@ input[type=submit]:hover {
   background-color: #16a7bf;
 }
 section#react {
-    display: grid;
+  display: grid;
 }
 #txtArea {
   resize: none;
   margin-left: 10px;
+  margin-right: 10px;
   width: 100px;
   float: left;
+}
+#btnRenderWord {
+  margin: 15px 0px 0px 5px;
+}
+#btnClear {
+  float:right;
 }

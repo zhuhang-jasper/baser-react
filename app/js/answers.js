@@ -45,6 +45,10 @@ class Answers extends Component {
     })
   }
 
+  clearWord = () => {
+    this.props.handleClick('')
+  }
+
   render () {
     const { words, handleClick, selectedWord } = this.props
     const { order } = this.state
@@ -58,6 +62,7 @@ class Answers extends Component {
             <option value="Highest">Highest</option>
             <option value="Lowest">Lowest</option>
           </select>
+          <input type="button" value="Clear" id="btnClear" onClick={this.clearWord} />
         </h3>
         <ul className="words">
           { words.sort(this.sort[order]).map((word, i) => {
