@@ -2,7 +2,7 @@
 
 An enhanced version of [baser-react](https://github.com/blainesch/baser-react). (A script to help you find better word combinations.)
 
-![Image](https://i.imgur.com/38aMCmN.png)
+![Image](https://i.imgur.com/3XhXS2s.png)
 
 Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 
@@ -20,9 +20,8 @@ Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 **Tip: Click the first letter (top left) and keep hitting 'TAB' button until you reach the last letter (bottom right).**
 
 ### How to use
-1. Use `npm install` or Copy from 'gh-pages' branch.
-2. Open simulator.html JavaScript section, modify accordingly.
-3. See known issues before you 'Find Word'.
+1. Use `npm install`
+2. Open simulator.html, modify JavaScript accordingly.
 
 Wordbase game App (available on
 [iphone](https://itunes.apple.com/us/app/wordbase/id777638764?mt=8) and
