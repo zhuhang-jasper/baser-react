@@ -1,0 +1,205 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+body:before,
+body:after {
+  content: '';
+  display: block;
+  width: 100%;
+  position: fixed;
+  left: 0;
+}
+body:before {
+  top: 0;
+  border-top: 10px solid #22cae6;
+}
+body:after {
+  bottom: 0;
+  border-bottom: 10px solid #ff8800;
+}
+a {
+  color: #00B7FF;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-weight: normal;
+  line-height: 1.5em;
+  margin-top: -0.5em;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+hr {
+  margin: 10px 0px;
+}
+/* TOOLS & ANSWERS */
+div.answers,
+div.tools {
+  min-height: 100px;
+  text-indent: 10px;
+  max-width: 300px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #2e3641;
+  border-top: 0;
+  /*padding-bottom: 10px;*/
+  border-radius: 6px 6px 3px 3px;
+}
+div.answers .words,
+div.tools .words {
+  height: 224px;
+  overflow: auto;
+}
+div.answers .words span,
+div.tools .words span {
+  text-indent: 0;
+  display: block;
+  padding: 3px;
+  cursor: pointer;
+  cursor: hand;
+  font-size: 15px;
+}
+div.answers .words span:hover,
+div.tools .words span:hover{
+  background-color: #e6e6e6;
+}
+div.answers .words span.selected,
+div.tools .words span.selected {
+  background-color: #16a7bf;
+}
+div.answers h3,
+div.tools h3 {
+  text-indent: 0;
+  border-radius: 3px 3px 0 0;
+  background-color: #2e3641;
+  color: #fff;
+  margin: 0;
+  padding: 8px;
+  text-align: center;
+  /*margin-bottom: 10px;*/
+}
+div.answers h3 select,
+div.tools h3 select {
+  margin-left: 15px;
+  height: 21px;
+}
+div.tools {
+  display: flow-root;
+}
+div.answers div.content,
+div.tools div.content {
+  padding: 5px;
+}
+div.answers div.content div:first-child,
+div.tools div.content div:first-child {
+  margin-top: 5px;
+}
+div.tools input[type=submit] {
+margin: 10px 0px 0px 15px;
+}
+div.answers h3 input {
+  float: right;
+  /*margin-top: 3px;*/
+}
+div.board {
+  float: right;
+}
+ul.board ul {
+  clear: both;
+}
+ul.board ul li {
+  float: left;
+}
+ul.board input {
+  width: 40px;
+  text-align: center;
+  font-size: 20pt;
+  border: 2px inset;
+}
+ul.board input.invalid {
+  border: 2px inset red;
+}
+ul.board input.orange {
+  background-color: #ffa033;
+}
+ul.board input.blue {
+  background-color: #50d5eb;
+}
+ul.board input.selected {
+  background-color: #16a7bf;
+}
+/* PRIMARY ACTION BUTTONS */
+input[type=submit] {
+  margin: 10px 10px 10px 0;
+  font-size: 16pt;
+  border: 0;
+  box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
+  border-radius: 6px 6px 6px 6px;
+  background-color: #22cae6;
+  padding: 5px 10px;
+  color: #fff;
+  cursor: pointer;
+  cursor: hand;
+}
+input[type=submit]:hover {
+  background-color: #16a7bf;
+}
+/* NORMAL HTML BUTTONS */
+input[type=button] {
+  border: 0;
+  box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.1) inset;
+  border-radius: 4px 4px 4px 4px;
+  padding: 5px 10px;
+  color: #fff;
+  cursor: pointer;
+  cursor: hand;
+}
+/* GREEN BUTTON */
+input[type=button].green {
+  background-color: #00e673;
+}
+input[type=button].green:hover {
+  background-color: #00b359;
+}
+/* RED BUTTON */
+input[type=button].red {
+  background-color: #ff5050;
+}
+input[type=button].red:hover {
+  background-color: #ef4545;
+}
+section#react {
+  display: grid;
+  margin-bottom: 30px;
+}
+#txtArea {
+  resize: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 110px;
+  float: left;
+}
+#lstPreset {
+  margin-left: 10px;
+  height: 21px;
+  width: 150px;
+}
+.button-group {
+  /*position: absolute;
+  margin-top: 37px;*/
+}
+input[type=submit][value=Clean] {
+  position: absolute;
+  margin: 0px 0px 0px 450px;
+}
