@@ -7,7 +7,7 @@ An enhanced version of [baser-react](https://github.com/blainesch/baser-react). 
 Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 
 ### Enhancements / TODOs
-- ~~Updated dictionary for more words (396K)~~
+- [X] ~~Updated dictionary for more words (396K)~~
 - [X] Swap color sides with opponent
 - [X] Clear highlighted words when simulating move
 - [X] Fill Letters - quickly load letters from textarea user input
