@@ -2,25 +2,24 @@
 
 An enhanced version of [baser-react](https://github.com/blainesch/baser-react). (A script to help you find better word combinations.)
 
-![Image](https://i.imgur.com/J0yNZft.png)
+![Image](https://i.imgur.com/huN1CkK.png)
 
 Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 
-### Enhancements 
+### Enhancements / TODOs
 - ~~Updated dictionary for more words (396K)~~
-- Swap color sides with opponent
-- Clear highlighted words when simulating move
-- Fill Letters - quickly load letters from textarea user input
-- Board Preset - quickly load predefined board letters (requires manual modification at Javascript)
-- *TODO: Perform Move - make suggested words your color*
-- *TODO: Move History - Undo/redo simulation*
-- *TODO: Words Played -  exclusion list*
-
-### Issues
-_See issues_
+- [X] Swap color sides with opponent
+- [X] Clear highlighted words when simulating move
+- [X] Fill Letters - quickly load letters from textarea user input
+- [X] Board Preset - quickly load predefined board letters (requires manual modification at Javascript)
+- [ ] Know your Opponent! - Find words by color
+- [ ] Words Played -  exclusion list
+- [ ] Perform Move - make suggested words your color
+- [ ] Move History - Undo/redo simulation
+- [ ] Win it for you! - GAME SIMULATION
 
 ### How to use
-1. Use `npm install` or visit 
+1. Use `npm install` or visit https://zhuhang-jasper.github.io/wordbaser.plusplus/
 2. Open simulator.html, modify JavaScript accordingly.
 
 Wordbase game App (available on
