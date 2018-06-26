@@ -2,7 +2,7 @@
 
 An enhanced version of [baser-react](https://github.com/blainesch/baser-react). (A script to help you find better word combinations.)
 
-![Image](https://i.imgur.com/huN1CkK.png)
+![Image](https://i.imgur.com/en2mDcG.png)
 
 Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 
