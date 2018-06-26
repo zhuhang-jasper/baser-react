@@ -6,23 +6,21 @@ An enhanced version of [baser-react](https://github.com/blainesch/baser-react). 
 
 Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 
-### Enhancements
+### Enhancements 
 - ~~Updated dictionary for more words (396K)~~
-- Swap color sides
-- Clear selected words traced on the board
-- Fill words onto board from textarea input (bug) See tip\*\*
-- Board Preset snapshots (requires modification at Javascript)
-- *TODO: Apply color change on selected move*
-- *TODO: Undo/Redo move*
+- Swap color sides with opponent
+- Clear highlighted words when simulating move
+- Fill Letters - quickly load letters from textarea user input
+- Board Preset - quickly load predefined board letters (requires manual modification at Javascript)
+- *TODO: Perform Move - make suggested words your color*
+- *TODO: Move History - Undo/redo simulation*
+- *TODO: Words Played -  exclusion list*
 
-### Known Issues
-1. Letters filled from textarea do not render into react component. See tip1\*\*
-2. Cannot load board preset once the board was rendered. Use 'Clean' button.
-
-**Tip1: Click the first letter (top left) and keep hitting 'TAB' button until you reach the last letter (bottom right).**
+### Issues
+_See issues_
 
 ### How to use
-1. Use `npm install`
+1. Use `npm install` or visit 
 2. Open simulator.html, modify JavaScript accordingly.
 
 Wordbase game App (available on
