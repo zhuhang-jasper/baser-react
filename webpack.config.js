@@ -9,7 +9,7 @@ module.exports = {
     app: ['./app/js/app.js'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     filename: 'bundle.min.js',
     sourceMapFilename: 'bundle.map.js',
   },
@@ -26,7 +26,7 @@ module.exports = {
       { from: 'app/favicon.ico' },
     ]),
     new HtmlWebpackPlugin({
-	  filename: 'simulator.html',
+      filename: 'index.html',
       template: 'app/simulator.html',
     }),
     /*
