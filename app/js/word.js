@@ -1,4 +1,5 @@
 import { dictionary } from './lib/dictionary'
+import { dictionary2 } from './lib/dictionary2'
 
 class Word {
   constructor (nodes) {
@@ -11,7 +12,7 @@ class Word {
     return new Word(nodes)
   }
 
-  findWords () {
+  findWords (isDeep) {
     const last = this.nodes[this.nodes.length - 1]
     return last.sibs.map((sib) => {
       if (!this.nodes.includes(sib)) {
@@ -19,11 +20,11 @@ class Word {
       }
     }).reduce((memo, word) => {
       if (word) {
-        if (word.isWord()) {
+        if (word.isWord(isDeep)) {
           memo.push(word)
         }
-        if (word.isPossibleWord()) {
-          return [...memo, ...word.findWords()]
+        if (word.isPossibleWord(isDeep)) {
+          return [...memo, ...word.findWords(isDeep)]
         }
       }
       return memo
@@ -43,13 +44,16 @@ class Word {
     }).join('').toLowerCase()
   }
 
-  isWord () {
-    return dictionary.lookup(this.toString())
+  isWord (isDeep) {
+    var dict = !isDeep ? dictionary : dictionary2
+    return dict.lookup(this.toString())
   }
 
-  isPossibleWord () {
-    return this.isWord() || dictionary.isValidPrefix(this.toString())
+  isPossibleWord (isDeep) {
+    var dict = !isDeep ? dictionary : dictionary2
+    return this.isWord(isDeep) || dict.isValidPrefix(this.toString())
   }
+
 }
 
 export { Word }

@@ -19,7 +19,7 @@ class Board extends Component {
     }
   }
 
-  findWords = () => {
+  findWords = (isDeep) => {
     const directions = [
       [0, -1], [0, 1], [-1, 0], [1, 0], [1, -1], [-1, -1], [1, 1], [-1, 1]
     ]
@@ -40,7 +40,7 @@ class Board extends Component {
       return row.reduce((memo, cell) => {
         if (cell.mode === 'blue') {
           const word = new Word([cell])
-          return [...memo, ...word.findWords()]
+          return [...memo, ...word.findWords(isDeep)]
         }
         return memo
       })
@@ -189,7 +189,8 @@ class Board extends Component {
         </ul>
         <div className="button-group">
             <input type="submit" value="Swap" onClick={this.swapColor} />
-            <input type="submit" value="Find Words" onClick={this.findWords} />
+            <input type="submit" value="Find" onClick={(e) => this.findWords(false)} />
+            <input type="submit" value="Find+" onClick={(e) => this.findWords(true)} />
             <input type="submit" value="Random" onClick={this.generateTestData} />
             <input type="submit" value="Log" onClick={this.logInfo} />
         </div>
