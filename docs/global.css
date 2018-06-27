@@ -165,16 +165,20 @@ input[type=button] {
   cursor: hand;
 }
 /* GREEN BUTTON */
+input[type=submit].green,
 input[type=button].green {
   background-color: #00e673;
 }
+input[type=submit].green:hover,
 input[type=button].green:hover {
   background-color: #00b359;
 }
 /* RED BUTTON */
+input[type=submit].red,
 input[type=button].red {
   background-color: #ff5050;
 }
+input[type=submit].red:hover,
 input[type=button].red:hover {
   background-color: #ef4545;
 }
