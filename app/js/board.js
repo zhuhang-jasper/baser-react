@@ -190,7 +190,7 @@ class Board extends Component {
         <div className="button-group">
             <input type="submit" value="Swap" onClick={this.swapColor} />
             <input type="submit" value="Find" onClick={(e) => this.findWords(false)} />
-            <input type="submit" value="Find+" onClick={(e) => this.findWords(true)} />
+            <input type="submit" className="green" value="Find+" onClick={(e) => this.findWords(true)} />
             <input type="submit" value="Random" onClick={this.generateTestData} />
             <input type="submit" value="Log" onClick={this.logInfo} />
         </div>
