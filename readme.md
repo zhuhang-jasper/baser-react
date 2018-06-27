@@ -2,12 +2,12 @@
 
 An enhanced version of [baser-react](https://github.com/blainesch/baser-react). (A script to help you find better word combinations.)
 
-![Image](https://i.imgur.com/en2mDcG.png)
+![Image](https://i.imgur.com/a8MUUQH.png)
 
 Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 
 ### Enhancements / TODOs
-- [X] ~~Updated dictionary for more words (396K)~~
+- [X] Bigger dictionary for more words (396K)
 - [X] Swap color sides with opponent
 - [X] Clear highlighted words when simulating move
 - [X] Fill Letters - quickly load letters from textarea user input
