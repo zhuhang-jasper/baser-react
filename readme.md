@@ -4,8 +4,6 @@ An enhanced version of [baser-react](https://github.com/blainesch/baser-react). 
 
 ![Image](https://i.imgur.com/a8MUUQH.png)
 
-Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
-
 ### Enhancements / TODOs
 - [X] Bigger dictionary for more words (396K)
 - [X] Swap color sides with opponent
@@ -25,3 +23,6 @@ Sample: https://zhuhangsirs.azurewebsites.net/wordbaser/simulator.html
 Wordbase game App (available on
 [iphone](https://itunes.apple.com/us/app/wordbase/id777638764?mt=8) and
 [android](https://play.google.com/store/apps/details?id=com.wordbaseapp&hl=en))
+
+### Contribution Ideas?
+Drop me an email. 
