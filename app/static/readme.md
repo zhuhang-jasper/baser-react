@@ -8,8 +8,8 @@
 > some additions - from @scottmsilver https://github.com/scottmsilver/wordbase-player
 
 ### ospd4.txt: `178379 words`
-<br>From @blainesch https://github.com/blainesch/baser-react
+From @blainesch https://github.com/blainesch/baser-react
 
 ### words_alpha.txt: `396988 words`
-<br>*__Note: Many invalid words__*
+*__Note: Many invalid words__*
 <br>From @dwyl https://github.com/dwyl/english-words
