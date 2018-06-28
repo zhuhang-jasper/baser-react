@@ -76382,7 +76382,7 @@ enlarger
 enlargers
 enlarges
 enlarging
-enlevE
+enleve
 enlevement
 enlevements
 enlight
@@ -76473,7 +76473,7 @@ ennogs
 ennui
 ennuied
 ennuis
-ennuyE
+ennuye
 ennuyed
 ennuyee
 ennuying
@@ -77108,8 +77108,8 @@ entozoan
 entozoans
 entozoic
 entozoon
-entrEe
-entrEes
+entree
+entrees
 entrail
 entrailed
 entrailing
