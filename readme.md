@@ -5,7 +5,7 @@ An enhanced version of [baser-react](https://github.com/blainesch/baser-react). 
 ![Image](https://i.imgur.com/a8MUUQH.png)
 
 ### Enhancements / TODOs
-- [X] Bigger dictionary for more words (396K)
+- [X] Bigger dictionary for more words
 - [X] Swap color sides with opponent
 - [X] Clear highlighted words when simulating move
 - [X] Fill Letters - quickly load letters from textarea user input
