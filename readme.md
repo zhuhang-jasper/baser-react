@@ -10,11 +10,10 @@ An enhanced version of [baser-react](https://github.com/blainesch/baser-react). 
 - [X] Clear highlighted words when simulating move
 - [X] Fill Letters - quickly load letters from textarea user input
 - [X] Board Preset - quickly load predefined board letters (requires manual modification at Javascript)
-- [ ] Know your Opponent! - Find words by color
+- [ ] Know your Opponent! - Find words by color without swapping
 - [ ] Words Played -  exclusion list
 - [ ] Perform Move - make suggested words your color
 - [ ] Move History - Undo/redo simulation
-- [ ] Win it for you! - GAME SIMULATION
 
 ### How to use
 1. Use `npm install` or visit https://zhuhang-jasper.github.io/wordbaser.plusplus/
